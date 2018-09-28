@@ -337,7 +337,7 @@ class Help : Error, ANSIConvertible, CustomStringConvertible {
     let options = descriptors.filter   { $0.type == ArgumentType.option }
 
     if let command = command {
-      let args = arguments.map { "<\($0.name)>" }
+        let args = arguments.map { "`\($0.name)`" }
       let usage = ([command] + args).joined(separator: " ")
 
       output.append("Usage:")
@@ -351,9 +351,9 @@ class Help : Error, ANSIConvertible, CustomStringConvertible {
       output.append("")
       for command in group.commands {
         if let description = command.description {
-          output.append("    + \(command.name) - \(description)")
+          output.append("    + `\(command.name)` - \(description)")
         } else {
-          output.append("    + \(command.name)")
+          output.append("    + `\(command.name)`")
         }
       }
       output.append("")
@@ -363,9 +363,9 @@ class Help : Error, ANSIConvertible, CustomStringConvertible {
 
       output += arguments.map { argument in
         if let description = argument.description {
-          return "    \(argument.name) - \(description)"
+          return "    `\(argument.name)` - \(description)"
         } else {
-          return "    \(argument.name)"
+          return "    `\(argument.name)`"
         }
       }
 
@@ -375,10 +375,10 @@ class Help : Error, ANSIConvertible, CustomStringConvertible {
     if !options.isEmpty {
       output.append("Options:")
       for option in options {
-        var line = "    --\(option.name)"
+        var line = "    `--\(option.name)`"
 
         if let `default` = option.default {
-          line += " [default: \(`default`)]"
+          line += " _[default: `\(`default`)`]_"
         }
 
         if let description = option.description {
@@ -389,7 +389,8 @@ class Help : Error, ANSIConvertible, CustomStringConvertible {
       }
     }
 
-    return output.joined(separator: "\n")
+    return "> " + output.joined(separator: "\n")
+        .replacingOccurrences(of: "\n", with: "\n> ")
   }
 
   var ansiDescription: String {
@@ -402,15 +403,13 @@ class Help : Error, ANSIConvertible, CustomStringConvertible {
       let args = arguments.map { "<\($0.name)>" }
       let usage = ([command] + args).joined(separator: " ")
 
-      output.append("Usage:")
-      output.append("")
+      output.append("*Usage:*")
       output.append("    \(usage)")
       output.append("")
     }
 
     if let group = group {
       output.append("Commands:")
-      output.append("")
       for command in group.commands {
         if let description = command.description {
           output.append("    + \(ANSI.green)\(command.name)\(ANSI.reset) - \(description)")
@@ -420,8 +419,7 @@ class Help : Error, ANSIConvertible, CustomStringConvertible {
       }
       output.append("")
     } else if !arguments.isEmpty {
-      output.append("Arguments:")
-      output.append("")
+      output.append("*Arguments:*")
 
       output += arguments.map { argument in
         if let description = argument.description {
@@ -435,7 +433,7 @@ class Help : Error, ANSIConvertible, CustomStringConvertible {
     }
 
     if !options.isEmpty {
-      output.append("Options:")
+      output.append("*Options:*")
       for option in options {
         var line = "    \(ANSI.blue)--\(option.name)\(ANSI.reset)"
 

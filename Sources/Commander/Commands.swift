@@ -119,7 +119,7 @@ public func command<A:ArgumentDescriptor>(_ descriptor:A, _ closure:@escaping (A
     let value0 = try descriptor.parse(parser)
 
     if !parser.isEmpty {
-      throw UsageError("Unknown Arguments: \(parser)", help)
+      throw UsageError("Unknown parameters: `\(parser)`", help)
     }
 
     try closure(value0)
@@ -142,7 +142,7 @@ public func command<A:ArgumentDescriptor, A1:ArgumentDescriptor>(_ descriptor: A
     let value1 = try descriptor1.parse(parser)
 
     if !parser.isEmpty {
-      throw UsageError("Unknown Arguments: \(parser)", help)
+      throw UsageError("Unknown parameter(s): `\(parser)`", help)
     }
 
     try closure(value0, value1)
@@ -167,7 +167,7 @@ public func command<A:ArgumentDescriptor, A1:ArgumentDescriptor, A2:ArgumentDesc
     let value2 = try descriptor2.parse(parser)
 
     if !parser.isEmpty {
-      throw UsageError("Unknown Arguments: \(parser)", help)
+      throw UsageError("Unknown parameter(s): `\(parser)`", help)
     }
 
     try closure(value0, value1, value2)
@@ -194,7 +194,7 @@ public func command<A:ArgumentDescriptor, A1:ArgumentDescriptor, A2:ArgumentDesc
     let value3 = try descriptor3.parse(parser)
 
     if !parser.isEmpty {
-      throw UsageError("Unknown Arguments: \(parser)", help)
+      throw UsageError("Unknown parameter(s): `\(parser)`", help)
     }
 
     try closure(value0, value1, value2, value3)
@@ -223,7 +223,7 @@ public func command<A:ArgumentDescriptor, A1:ArgumentDescriptor, A2:ArgumentDesc
     let value4 = try descriptor4.parse(parser)
 
     if !parser.isEmpty {
-      throw UsageError("Unknown Arguments: \(parser)", help)
+      throw UsageError("Unknown parameter(s): `\(parser)`", help)
     }
 
     try closure(value0, value1, value2, value3, value4)
@@ -254,7 +254,7 @@ public func command<A:ArgumentDescriptor, A1:ArgumentDescriptor, A2:ArgumentDesc
     let value5 = try descriptor5.parse(parser)
 
     if !parser.isEmpty {
-      throw UsageError("Unknown Arguments: \(parser)", help)
+      throw UsageError("Unknown parameter(s): `\(parser)`", help)
     }
 
     try closure(value0, value1, value2, value3, value4, value5)
@@ -287,7 +287,7 @@ public func command<A:ArgumentDescriptor, A1:ArgumentDescriptor, A2:ArgumentDesc
     let value6 = try descriptor6.parse(parser)
 
     if !parser.isEmpty {
-      throw UsageError("Unknown Arguments: \(parser)", help)
+      throw UsageError("Unknown parameter(s): `\(parser)`", help)
     }
 
     try closure(value0, value1, value2, value3, value4, value5, value6)
@@ -322,7 +322,7 @@ public func command<A:ArgumentDescriptor, A1:ArgumentDescriptor, A2:ArgumentDesc
     let value7 = try descriptor7.parse(parser)
 
     if !parser.isEmpty {
-      throw UsageError("Unknown Arguments: \(parser)", help)
+      throw UsageError("Unknown parameter(s): `\(parser)`", help)
     }
 
     try closure(value0, value1, value2, value3, value4, value5, value6, value7)
@@ -359,7 +359,7 @@ public func command<A:ArgumentDescriptor, A1:ArgumentDescriptor, A2:ArgumentDesc
     let value8 = try descriptor8.parse(parser)
 
     if !parser.isEmpty {
-      throw UsageError("Unknown Arguments: \(parser)", help)
+      throw UsageError("Unknown parameter(s): `\(parser)`", help)
     }
 
     try closure(value0, value1, value2, value3, value4, value5, value6, value7, value8)
@@ -398,7 +398,7 @@ public func command<A:ArgumentDescriptor, A1:ArgumentDescriptor, A2:ArgumentDesc
     let value9 = try descriptor9.parse(parser)
 
     if !parser.isEmpty {
-      throw UsageError("Unknown Arguments: \(parser)", help)
+      throw UsageError("Unknown parameter(s): `\(parser)`", help)
     }
 
     try closure(value0, value1, value2, value3, value4, value5, value6, value7, value8, value9)
@@ -439,7 +439,7 @@ public func command<A:ArgumentDescriptor, A1:ArgumentDescriptor, A2:ArgumentDesc
     let value10 = try descriptor10.parse(parser)
 
     if !parser.isEmpty {
-      throw UsageError("Unknown Arguments: \(parser)", help)
+      throw UsageError("Unknown parameter(s): `\(parser)`", help)
     }
 
     try closure(value0, value1, value2, value3, value4, value5, value6, value7, value8, value9, value10)
@@ -482,7 +482,7 @@ public func command<A:ArgumentDescriptor, A1:ArgumentDescriptor, A2:ArgumentDesc
     let value11 = try descriptor11.parse(parser)
 
     if !parser.isEmpty {
-      throw UsageError("Unknown Arguments: \(parser)", help)
+      throw UsageError("Unknown parameter(s): `\(parser)`", help)
     }
 
     try closure(value0, value1, value2, value3, value4, value5, value6, value7, value8, value9, value10, value11)
@@ -527,7 +527,7 @@ public func command<A:ArgumentDescriptor, A1:ArgumentDescriptor, A2:ArgumentDesc
     let value12 = try descriptor12.parse(parser)
 
     if !parser.isEmpty {
-      throw UsageError("Unknown Arguments: \(parser)", help)
+      throw UsageError("Unknown parameter(s): `\(parser)`", help)
     }
 
     try closure(value0, value1, value2, value3, value4, value5, value6, value7, value8, value9, value10, value11, value12)
@@ -574,7 +574,7 @@ public func command<A:ArgumentDescriptor, A1:ArgumentDescriptor, A2:ArgumentDesc
     let value13 = try descriptor13.parse(parser)
 
     if !parser.isEmpty {
-      throw UsageError("Unknown Arguments: \(parser)", help)
+      throw UsageError("Unknown parameter(s): `\(parser)`", help)
     }
 
     try closure(value0, value1, value2, value3, value4, value5, value6, value7, value8, value9, value10, value11, value12, value13)

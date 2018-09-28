@@ -12,7 +12,7 @@ public enum GroupError : Error, Equatable, CustomStringConvertible {
     case .unknownCommand(let name):
       return "Unknown command: `\(name)`"
     case .noCommand(let path, let group):
-      let available = group.commands.map { $0.name }.sorted().joined(separator: ", ")
+      let available = group.commands.map { "`\($0.name)`" }.sorted().joined(separator: ", ")
       if let path = path {
         return "Usage: \(path) COMMAND\n\nCommands: \(available)"
       } else {
